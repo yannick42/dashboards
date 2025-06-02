@@ -1,0 +1,27 @@
+[project]
+name = "multiple-linear-regression"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Yannick",email = "yannick4283@hotmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dash (>=3.0.4,<4.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "matplotlib (>=3.10.3,<4.0.0)",
+    "numpy (>=2.2.6,<3.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "statsmodels (>=0.14.4,<0.15.0)",
+    "dash-bootstrap-components (>=2.0.3,<3.0.0)",
+    "joblib (>=1.5.1,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "dash", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
