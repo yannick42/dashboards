@@ -1,1 +1,1 @@
-web: gunicorn --worker-tmp-dir /dev/shm app:server
+web: gunicorn -b 0.0.0.0:8080 --worker-tmp-dir /dev/shm app:server
