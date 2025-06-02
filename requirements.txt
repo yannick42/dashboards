@@ -1,1 +1,11 @@
 gunicorn
+dash
+pandas
+matplotlib
+numpy
+scikit-learn
+statsmodels
+dash-bootstrap-components
+joblib
+kagglehub
+scipy
