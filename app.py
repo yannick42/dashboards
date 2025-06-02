@@ -11,6 +11,7 @@ path = kagglehub.dataset_download("hellbuoy/car-price-prediction")
 df = pd.read_csv(path + '/CarPrice_Assignment.csv')
 
 app = Dash()
+server = app.server
 
 def serve_layout():
     session_id = str(uuid.uuid4())
