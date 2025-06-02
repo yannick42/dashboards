@@ -16,7 +16,7 @@ server = app.server
 def serve_layout():
     session_id = str(uuid.uuid4())
     return html.Div([
-        html.H1(children='Multiple Linear Regression', style={'textAlign':'center'}),
+        html.H1(children='Multiple Linear Regression (test)', style={'textAlign':'center'}),
         dcc.Dropdown(df.columns, 'CarName', id='dropdown-selection'),
         dcc.Dropdown(df.columns, 'price', id='dropdown-selection-2'),
         dcc.Graph(id='graph-content'),

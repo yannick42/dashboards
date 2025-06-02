@@ -35,4 +35,4 @@ Then go to : http://127.0.0.1:8050
 
 ### Deploy to GCP
 
-<mark>TODO</mark>
+Automatically deployed to : https://dashboards-828112592242.europe-west9.run.app/
