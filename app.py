@@ -1,25 +1,34 @@
 from dash import Dash, html, dcc, callback, Output, Input
 import plotly.express as px
 import pandas as pd
+import uuid
+import kagglehub
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv')
+# Download latest version
+path = kagglehub.dataset_download("hellbuoy/car-price-prediction")
+#print("Path to dataset files:", path) # ~/.cache/kagglehub/datasets/hellbuoy/car-price-prediction/versions/1
+df = pd.read_csv(path + '/CarPrice_Assignment.csv')
 
 app = Dash()
 
-# Requires Dash 2.17.0 or later
-app.layout = [
-    html.H1(children='Multiple Linear Regression', style={'textAlign':'center'}),
-    dcc.Dropdown(df.country.unique(), 'Canada', id='dropdown-selection'),
-    dcc.Graph(id='graph-content')
-]
+def serve_layout():
+    session_id = str(uuid.uuid4())
+    return html.Div([
+        html.H1(children='Multiple Linear Regression', style={'textAlign':'center'}),
+        dcc.Dropdown(['gas', 'diesel'], 'gas', id='dropdown-selection'),
+        dcc.Graph(id='graph-content'),
+        
+    ])
+
+app.layout = serve_layout()
 
 @callback(
     Output('graph-content', 'figure'),
     Input('dropdown-selection', 'value')
 )
 def update_graph(value):
-    dff = df[df.country==value]
-    return px.line(dff, x='year', y='pop')
+    dff = df[df.fueltype==value]
+    return px.line(dff, x='CarName', y='price')
 
 if __name__ == '__main__':
     app.run(debug=True)
